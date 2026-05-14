@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kim Joshua L. Razon — Aspiring Weather Specialist</title>
+<meta name="description" content="Portfolio of Kim Joshua L. Razon — BS in Meteorology graduate at CLSU, PAGASA-trained, and CSE-PPT passer." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#fafafa; --fg:#1a1a1a; --muted:#6b6b6b; --card:#ffffff;
+  --border:#e2e2e2; --accent:#1a1a1a;
+  --font-display:"Fraunces", Georgia, serif;
+  --font-sans:"Inter", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-sans);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none;transition:color .2s}
+a:hover{color:var(--accent)}
+img{display:block;max-width:100%}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+
+.muted{color:var(--muted)}
+.accent{color:var(--accent)}
+.small{font-size:.875rem}
+.eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.3em}
+.display{font-family:var(--font-display);font-weight:300;font-size:clamp(2.75rem,7vw,6rem);line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+.display em{font-style:italic;color:var(--accent)}
+.display-sm{font-family:var(--font-display);font-weight:300;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em;margin-top:1rem}
+.h3{font-family:var(--font-display);font-size:1.5rem;font-weight:500}
+.lede{margin-top:1.5rem;font-size:1.125rem;color:var(--muted);max-width:46rem}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;min-height:90vh}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(250,250,250,.4),rgba(250,250,250,.7),var(--bg))}
+.hero-inner{position:relative;padding:40px 24px 140px}
+.nav{display:flex;align-items:center;justify-content:space-between;font-size:.875rem}
+.brand{font-family:var(--font-display);font-size:1.25rem;font-weight:600;letter-spacing:-.02em}
+.nav-links{display:none;gap:32px}
+@media(min-width:768px){.nav-links{display:flex}}
+.hero-content{margin-top:120px;max-width:48rem}
+@media(min-width:768px){.hero-content{margin-top:160px}}
+
+.cta-row{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;font-size:.875rem;font-weight:500;transition:all .2s;cursor:pointer}
+.btn-primary{background:var(--fg);color:var(--bg)}
+.btn-primary:hover{transform:translateY(-2px);color:var(--bg)}
+.btn-outline{border:1px solid rgba(0,0,0,.2)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+
+/* SECTIONS */
+.section{border-top:1px solid var(--border);padding:80px 0}
+@media(min-width:768px){.section{padding:112px 0}}
+.bg-card{background:var(--card)}
+.mt-xl{margin-top:4rem}
+
+.grid-12{display:grid;gap:48px}
+@media(min-width:768px){.grid-12{grid-template-columns:repeat(12,1fr)}.col-4{grid-column:span 4}.col-8{grid-column:span 8}}
+.prose p{font-size:1.125rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.75}
+.prose strong{color:var(--fg);font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;padding-top:1rem}
+.chip{border:1px solid var(--border);background:var(--bg);padding:6px 12px;border-radius:999px;font-size:.75rem;font-weight:500}
+
+/* EXP */
+.exp-list{margin-top:3.5rem;border-bottom:1px solid var(--border)}
+.exp-item{display:grid;grid-template-columns:1fr;gap:.75rem;padding:32px 0;border-top:1px solid var(--border);transition:background .2s}
+.exp-item:hover{background:var(--card)}
+@media(min-width:768px){.exp-item{grid-template-columns:3fr 9fr;gap:32px}}
+.exp-year{font-size:.875rem;font-weight:500;color:var(--muted);letter-spacing:.04em}
+.exp-title{font-family:var(--font-display);font-size:clamp(1.5rem,2.5vw,1.875rem);font-weight:500}
+.exp-body{margin-top:.5rem;color:var(--muted);max-width:42rem}
+
+.card{margin-top:4rem;border:1px solid var(--border);background:var(--card);border-radius:16px;padding:32px}
+.cert-grid{margin-top:1.5rem;list-style:none;display:grid;gap:.75rem}
+@media(min-width:768px){.cert-grid{grid-template-columns:1fr 1fr}}
+.cert-grid li{display:flex;gap:.75rem;color:var(--muted)}
+.cert-grid li::before{content:"";flex-shrink:0;margin-top:.55rem;width:6px;height:6px;border-radius:999px;background:var(--accent)}
+
+/* PROGRAMMING CERT GALLERY */
+.prog-cert-grid{
+  margin-top:1.75rem;
+  display:grid;
+  gap:16px;
+  grid-template-columns:repeat(2,1fr);
+}
+@media(min-width:640px){.prog-cert-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.prog-cert-grid{grid-template-columns:repeat(3,1fr)}}
+
+.prog-cert-item{
+  position:relative;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:#f5f5f5;
+  aspect-ratio:4/3;
+  cursor:pointer;
+  transition:transform .25s, box-shadow .25s;
+}
+.prog-cert-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(0,0,0,.12);
+}
+.prog-cert-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .4s;
+}
+.prog-cert-item:hover img{
+  transform:scale(1.04);
+}
+.prog-cert-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 60%);
+  opacity:0;
+  transition:opacity .3s;
+  display:flex;
+  align-items:flex-end;
+  padding:14px;
+}
+.prog-cert-item:hover .prog-cert-overlay{opacity:1}
+.prog-cert-label{
+  color:#fff;
+  font-size:.75rem;
+  font-weight:500;
+  letter-spacing:.03em;
+  line-height:1.3;
+}
+
+/* LIGHTBOX */
+.lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:rgba(10,10,10,.88);
+  backdrop-filter:blur(6px);
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.lightbox.open{display:flex}
+.lightbox-inner{
+  position:relative;
+  max-width:900px;
+  width:100%;
+}
+.lightbox-inner img{
+  width:100%;
+  border-radius:12px;
+  box-shadow:0 32px 80px rgba(0,0,0,.5);
+}
+.lightbox-close{
+  position:absolute;
+  top:-40px;
+  right:0;
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:1.5rem;
+  cursor:pointer;
+  opacity:.7;
+  transition:opacity .2s;
+  line-height:1;
+}
+.lightbox-close:hover{opacity:1}
+.lightbox-caption{
+  margin-top:14px;
+  text-align:center;
+  color:rgba(255,255,255,.7);
+  font-size:.875rem;
+  letter-spacing:.03em;
+}
+.lightbox-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);
+  color:#fff;
+  width:40px;
+  height:40px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-size:1.1rem;
+  transition:background .2s;
+}
+.lightbox-nav:hover{background:rgba(255,255,255,.25)}
+.lightbox-prev{left:-56px}
+.lightbox-next{right:-56px}
+@media(max-width:768px){
+  .lightbox-prev{left:0;top:auto;bottom:-56px;transform:none}
+  .lightbox-next{right:0;top:auto;bottom:-56px;transform:none}
+}
+
+/* EDU */
+.edu-grid{margin-top:3rem;display:grid;gap:24px}
+@media(min-width:768px){.edu-grid{grid-template-columns:repeat(3,1fr)}}
+.edu-card{display:flex;flex-direction:column;border:1px solid var(--border);background:var(--bg);border-radius:16px;padding:24px}
+.edu-period{font-size:.75rem;font-weight:500;letter-spacing:.1em;color:var(--accent)}
+.edu-degree{margin-top:.75rem;font-family:var(--font-display);font-size:1.25rem;font-weight:500;line-height:1.3}
+.edu-school{margin-top:.5rem;font-size:.875rem}
+.edu-detail{margin-top:1rem;font-size:.875rem;color:var(--muted)}
+
+/* SKILLS + LANG */
+.two-col{display:grid;gap:64px}
+@media(min-width:768px){.two-col{grid-template-columns:1fr 1fr}}
+.skills-list{margin-top:2rem;list-style:none}
+.skills-list li{display:flex;align-items:baseline;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--border)}
+.skills-list .num{font-family:var(--font-display);font-size:.875rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.lang-list{margin-top:2rem;display:flex;flex-direction:column;gap:1.5rem}
+.lang-row{display:flex;align-items:baseline;justify-content:space-between}
+.lang-name{font-family:var(--font-display);font-size:1.5rem}
+.lang-bar{margin-top:.5rem;height:4px;width:100%;background:#ececec;border-radius:999px;overflow:hidden}
+.lang-fill{height:100%;background:var(--accent);border-radius:999px}
+.ref-name{margin-top:.75rem;font-family:var(--font-display);font-size:1.25rem}
+.link{margin-top:.5rem;display:inline-block;font-size:.875rem;color:var(--accent)}
+.link:hover{text-decoration:underline}
+
+/* CONTACT */
+.invert{background:var(--fg);color:var(--bg)}
+.invert .accent,.invert .display em{color:#fff}
+.invert a:hover{color:#fff}
+.contact-grid{margin-top:3.5rem;display:grid;gap:40px}
+@media(min-width:768px){.contact-grid{grid-template-columns:repeat(3,1fr)}.contact-grid .full{grid-column:span 3}}
+.label{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.6)}
+.contact-grid a,.contact-grid p:not(.label){margin-top:.5rem;font-size:1.125rem;display:block}
+.footer-row{margin-top:5rem;display:flex;flex-direction:column;gap:1rem;border-top:1px solid rgba(255,255,255,.1);padding-top:32px;font-size:.875rem;color:rgba(255,255,255,.6)}
+@media(min-width:768px){.footer-row{flex-direction:row;justify-content:space-between;align-items:center}}
+</style>
+</head>
+<body>
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="sky-hero.jpg" alt="Dramatic clouds at golden hour" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-inner">
+      <nav class="nav">
+        <span class="brand">KJLR.</span>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+      <div class="hero-content">
+        <p class="eyebrow muted">Portfolio · Nueva Ecija, Philippines</p>
+        <h1 class="display">Kim Joshua <em>L.</em> Razon</h1>
+        <p class="lede">Aspiring Weather Specialist. Reading the sky, one observation at a time.</p>
+        <div class="cta-row">
+          <a href="#contact" class="btn btn-primary">Get in touch</a>
+          <a href="#experience" class="btn btn-outline">View credentials</a>
+		  <a href="CV/Razon_CV.pdf" download class="btn btn-outline">Download CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section bg-card">
+    <div class="container grid-12">
+      <div class="col-4">
+        <p class="eyebrow accent">01 — Profile</p>
+        <h2 class="display-sm">About me</h2>
+      </div>
+      <div class="col-8 prose">
+        <p>I am <strong>Kim Joshua L. Razon</strong>, a Bachelor of Science in Meteorology graduate from Central Luzon State University, with hands-on training at PAGASA's Baguio Synoptic Station and BSU's Agromet Station.</p>
+        <p>My background spans atmospheric science, instrumentation, and technology — including web development, embedded systems, QGIS, and AI. I enjoy finding practical ways to make meteorological work simpler and more efficient, and I carry a deep respect for the science and the people who shaped it before me.</p>
+        <div class="chips" id="chips"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="container">
+      <p class="eyebrow accent">02 — Journey</p>
+      <h2 class="display-sm">Experience &amp; Credentials</h2>
+      <div class="exp-list" id="exp-list"></div>
+
+      <!-- Academic Certificates -->
+      <div class="card mt-xl">
+        <h3 class="h3">Academic Certificates</h3>
+        <ul class="cert-grid" id="cert-grid"></ul>
+      </div>
+
+      <!-- Programming Certificates -->
+      <div class="card mt-xl">
+        <h3 class="h3">Programming Certificates</h3>
+        <div class="prog-cert-grid" id="prog-cert-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section bg-card">
+    <div class="container">
+      <p class="eyebrow accent">03 — Education</p>
+      <h2 class="display-sm">Where I studied</h2>
+      <div class="edu-grid" id="edu-grid"></div>
+    </div>
+  </section>
+
+  <!-- SKILLS + LANGUAGES -->
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow accent">04 — Toolkit</p>
+        <h2 class="display-sm">Skills</h2>
+        <ul class="skills-list" id="skills-list"></ul>
+      </div>
+      <div>
+        <p class="eyebrow accent">05 — Languages</p>
+        <h2 class="display-sm">Languages</h2>
+        <div class="lang-list" id="lang-list"></div>
+        <div class="card mt-xl">
+          <p class="eyebrow muted">Reference</p>
+          <p class="ref-name">Jophet Dela Cruz Flores</p>
+          <p class="muted small">Professor, CLSU</p>
+          <a class="link" href="mailto:jophet.flores@clsu2.edu.ph">jophet.flores@clsu2.edu.ph</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section invert">
+    <div class="container">
+      <p class="eyebrow accent">06 — Contact</p>
+      <h2 class="display">Let's build something <em>together.</em></h2>
+      <div class="contact-grid">
+        <div><p class="label">Personal Email</p><a href="mailto:kimrazon43@gmail.com">kimrazon43@gmail.com</a></div>
+        <div><p class="label">Phone</p><a href="tel:+639702209285">+(63) 970 220 9285</a></div>
+        <div><p class="label">Meteorological Website</p><a target="_blank" rel="noreferrer" href="https://rzkmt-metobs.netlify.app">RZKMT MetObs</a></div>
+        <div class="full"><p class="label">Address</p><p>Purok 6, Brgy. Mallorca, San Leonardo, Nueva Ecija</p></div>
+      </div>
+      <div class="footer-row">
+        <span>© <span id="year"></span> Kim Joshua L. Razon</span>
+        <span>Aspiring Weather Specialist</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lb-close" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous">&#8592;</button>
+    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Next">&#8594;</button>
+    <img id="lb-img" src="" alt="" />
+    <p class="lightbox-caption" id="lb-caption"></p>
+  </div>
+</div>
+
+<script>
+const skills = [
+  "Software Tools (Excel, Word, PowerPoint, QGIS)",
+  "Operating Systems (Windows, Linux)",
+  "Hardware, Software & Troubleshooting",
+  "Web & Software Development",
+  "AI Programming & Automation",
+  "Productive Time Management",
+  "Effective Communication",
+];
+const education = [
+  { period: "2021 — 2026", school: "Central Luzon State University (CLSU)", degree: "Bachelor of Science in Meteorology (BSMET)", detail: "College of Science · GPA 1.64 · Cum Laude" },
+  { period: "2019 — 2021", school: "Mallorca National High School (MNHS)", degree: "Senior High School — Humanities and Social Sciences (HUMSS)", detail: "GPA 97 · Valedictorian" },
+  { period: "2015 — 2019", school: "Masbate National Comprehensive High School (Science High School)", degree: "Junior High School — Grade 7 to Grade 10", detail: "Cumulative Average 89 · Consistent Top Student" },
+];
+const experiences = [
+  { year: "2026", title: "CSE-PPT Passer", body: "Passed the Civil Service Exam (Professional) — March 2026. Among the 15.85% who passed out of 307,489 examinees nationwide." },
+  { year: "2025 — Present", title: "Dagaz Data Entry", body: "Disputing services for Uber Eats — accurate case handling, documentation, and resolution." },
+  { year: "2024", title: "On-the-Job Training", body: "240 hours of training at PAGASA Baguio Synoptic Station and PAGASA BSU Agromet Station." },
+];
+const credentials = [
+  "On-the-Job Training Certificate of Completion",
+  "Certificate of Participation — Youth Forum on Access and Benefit Sharing",
+  "Certificate of Participation — First-aid Training",
+  "Certificate of Participation — First Campus Journalists' Congress",
+  "Certificate of Participation — 2019 CD IV Press Conference",
+];
+const chips = ["Meteorology", "Web & Software Developer", "PAGASA-trained", "Cum Laude", "CSE-PPT Passer"];
+const langs = [
+  { lang: "Filipino", level: "Fluent", v: 100 },
+  { lang: "English", level: "Intermediate", v: 70 }
+];
+
+// Programming certificates — rename the .jpg files to match these filenames
+// Place all images inside an "eCertificate" folder next to this HTML file
+const progCerts = [
+  { file: "1.jpg", label: "Programming Certificate 1" },
+  { file: "2.jpg", label: "Programming Certificate 2" },
+  { file: "3.jpg", label: "Programming Certificate 3" },
+  { file: "4.jpg", label: "Programming Certificate 4" },
+  { file: "5.jpg", label: "Programming Certificate 5" },
+  { file: "6.jpg", label: "Programming Certificate 6" },
+];
+
+const esc = (s) => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+document.getElementById("chips").innerHTML = chips.map(c => `<span class="chip">${esc(c)}</span>`).join("");
+
+document.getElementById("exp-list").innerHTML = experiences.map(e => `
+  <article class="exp-item">
+    <div class="exp-year">${esc(e.year)}</div>
+    <div>
+      <h3 class="exp-title">${esc(e.title)}</h3>
+      <p class="exp-body">${esc(e.body)}</p>
+    </div>
+  </article>
+`).join("");
+
+document.getElementById("cert-grid").innerHTML = credentials.map(c => `<li>${esc(c)}</li>`).join("");
+
+// Programming cert image gallery
+document.getElementById("prog-cert-grid").innerHTML = progCerts.map((c, i) => `
+  <div class="prog-cert-item" data-index="${i}" tabindex="0" role="button" aria-label="View ${esc(c.label)}">
+    <img src="eCertificates/${esc(c.file)}" alt="${esc(c.label)}" loading="lazy" />
+    <div class="prog-cert-overlay">
+      <span class="prog-cert-label">${esc(c.label)}</span>
+    </div>
+  </div>
+`).join("");
+
+document.getElementById("edu-grid").innerHTML = education.map(ed => `
+  <div class="edu-card">
+    <p class="edu-period">${esc(ed.period)}</p>
+    <h3 class="edu-degree">${esc(ed.degree)}</h3>
+    <p class="edu-school">${esc(ed.school)}</p>
+    <p class="edu-detail">${esc(ed.detail)}</p>
+  </div>
+`).join("");
+
+document.getElementById("skills-list").innerHTML = skills.map((s, i) => `
+  <li><span class="num">${String(i + 1).padStart(2, "0")}</span><span>${esc(s)}</span></li>
+`).join("");
+
+document.getElementById("lang-list").innerHTML = langs.map(l => `
+  <div>
+    <div class="lang-row"><span class="lang-name">${esc(l.lang)}</span><span class="muted small">${esc(l.level)}</span></div>
+    <div class="lang-bar"><div class="lang-fill" style="width:${l.v}%"></div></div>
+  </div>
+`).join("");
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Smooth scroll
+document.querySelectorAll('.nav-links a, .cta-row a[href^="#"]').forEach(a => {
+  a.addEventListener("click", e => {
+    const id = a.getAttribute("href");
+    if (id?.startsWith("#")) {
+      e.preventDefault();
+      document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
+
+// Lightbox
+let currentIndex = 0;
+const lightbox = document.getElementById("lightbox");
+const lbImg = document.getElementById("lb-img");
+const lbCaption = document.getElementById("lb-caption");
+
+function openLightbox(index) {
+  currentIndex = index;
+  const cert = progCerts[index];
+  lbImg.src = "eCertificates/" + cert.file;
+  lbImg.alt = cert.label;
+  lbCaption.textContent = cert.label;
+  lightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function showPrev() {
+  openLightbox((currentIndex - 1 + progCerts.length) % progCerts.length);
+}
+
+function showNext() {
+  openLightbox((currentIndex + 1) % progCerts.length);
+}
+
+document.getElementById("prog-cert-grid").addEventListener("click", e => {
+  const item = e.target.closest(".prog-cert-item");
+  if (item) openLightbox(Number(item.dataset.index));
+});
+
+document.getElementById("prog-cert-grid").addEventListener("keydown", e => {
+  if (e.key === "Enter" || e.key === " ") {
+    const item = e.target.closest(".prog-cert-item");
+    if (item) openLightbox(Number(item.dataset.index));
+  }
+});
+
+document.getElementById("lb-close").addEventListener("click", closeLightbox);
+document.getElementById("lb-prev").addEventListener("click", showPrev);
+document.getElementById("lb-next").addEventListener("click", showNext);
+
+lightbox.addEventListener("click", e => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener("keydown", e => {
+  if (!lightbox.classList.contains("open")) return;
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowLeft") showPrev();
+  if (e.key === "ArrowRight") showNext();
+});
+</script>
+</body>
+</html>

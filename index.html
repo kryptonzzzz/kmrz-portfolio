@@ -7,6 +7,7 @@
 <meta name="description" content="Portfolio of Kim Joshua L. Razon — BS in Meteorology graduate at CLSU, PAGASA-trained, and CSE-PPT passer." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="icon" href="image/K.png" type="image/png" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 :root{
@@ -81,7 +82,7 @@ img{display:block;max-width:100%}
 .cert-grid li{display:flex;gap:.75rem;color:var(--muted)}
 .cert-grid li::before{content:"";flex-shrink:0;margin-top:.55rem;width:6px;height:6px;border-radius:999px;background:var(--accent)}
 
-/* PROGRAMMING CERT GALLERY */
+/* IMAGE GALLERY (shared by prog certs + projects) */
 .prog-cert-grid{
   margin-top:1.75rem;
   display:grid;
@@ -203,13 +204,42 @@ img{display:block;max-width:100%}
 }
 
 /* EDU */
-.edu-grid{margin-top:3rem;display:grid;gap:24px}
-@media(min-width:768px){.edu-grid{grid-template-columns:repeat(3,1fr)}}
-.edu-card{display:flex;flex-direction:column;border:1px solid var(--border);background:var(--bg);border-radius:16px;padding:24px}
-.edu-period{font-size:.75rem;font-weight:500;letter-spacing:.1em;color:var(--accent)}
-.edu-degree{margin-top:.75rem;font-family:var(--font-display);font-size:1.25rem;font-weight:500;line-height:1.3}
-.edu-school{margin-top:.5rem;font-size:.875rem}
-.edu-detail{margin-top:1rem;font-size:.875rem;color:var(--muted)}
+/* Update these lines in your <style> tag */
+.edu-grid { margin-top: 3rem; display: grid; gap: 24px; }
+@media(min-width:768px){ .edu-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.edu-card { 
+  display: flex; 
+  flex-direction: column; 
+  border: 1px solid var(--border); 
+  background: var(--card); 
+  border-radius: 16px; 
+  padding: 24px; 
+}
+.edu-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.edu-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 6px;
+  flex-shrink: 0;
+  background: #fff; /* Safeguard for non-transparent backgrounds */
+  padding: 2px;
+  border: 1px solid var(--border);
+}
+.edu-meta {
+  display: flex;
+  flex-direction: column;
+}
+.edu-period { font-size: .75rem; font-weight: 500; letter-spacing: .1em; color: var(--accent); }
+.edu-school { font-size: .875rem; margin-top: 2px; font-weight: 500; }
+.edu-degree { margin-top: .5rem; font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; line-height: 1.3; }
+.edu-detail { margin-top: 1rem; font-size: .875rem; color: var(--muted); }
 
 /* SKILLS + LANG */
 .two-col{display:grid;gap:64px}
@@ -236,6 +266,24 @@ img{display:block;max-width:100%}
 .contact-grid a,.contact-grid p:not(.label){margin-top:.5rem;font-size:1.125rem;display:block}
 .footer-row{margin-top:5rem;display:flex;flex-direction:column;gap:1rem;border-top:1px solid rgba(255,255,255,.1);padding-top:32px;font-size:.875rem;color:rgba(255,255,255,.6)}
 @media(min-width:768px){.footer-row{flex-direction:row;justify-content:space-between;align-items:center}}
+
+/* HERO PROFILE PIC */
+.hero-name-row{
+  display:flex;
+  align-items:center;
+  gap:2rem;
+}
+.hero-name-row .display{
+  margin:0;
+  flex:0 1 auto;
+}
+.hero-profile-pic{
+  width:185px;height:185px;border-radius:999px;
+  overflow:hidden;border:3px solid rgba(255,255,255,.5);
+  flex-shrink:0;
+  align-self:center;
+}
+.hero-profile-pic img{width:100%;height:100%;object-fit:cover;object-position:center top;}
 </style>
 </head>
 <body>
@@ -258,12 +306,17 @@ img{display:block;max-width:100%}
       </nav>
       <div class="hero-content">
         <p class="eyebrow muted">Portfolio · Nueva Ecija, Philippines</p>
-        <h1 class="display">Kim Joshua <em>L.</em> Razon</h1>
+        <div class="hero-name-row">
+          <div class="hero-profile-pic">
+            <img src="image/profile.png" alt="Kim Joshua L. Razon" />
+          </div>
+          <h1 class="display">Kim Joshua <em>L.</em> Razon</h1>
+        </div>
         <p class="lede">Aspiring Weather Specialist. Reading the sky, one observation at a time.</p>
         <div class="cta-row">
           <a href="#contact" class="btn btn-primary">Get in touch</a>
           <a href="#experience" class="btn btn-outline">View credentials</a>
-		  <a href="CV/Razon_CV.pdf" download class="btn btn-outline">Download CV</a>
+          <a href="CV/Razon_CV.pdf" download class="btn btn-outline">Download CV</a>
         </div>
       </div>
     </div>
@@ -336,13 +389,25 @@ img{display:block;max-width:100%}
     </div>
   </section>
 
+  <!-- PROJECTS -->
+  <section id="project" class="section bg-card">
+    <div class="container">
+      <p class="eyebrow accent">06 — Projects</p>
+      <h2 class="display-sm">My creations</h2>
+      <div class="card mt-xl">
+	  <h3 class="h3">Meteorology Related Web and Software Development Projects</h3>
+        <div class="prog-cert-grid" id="pro-grid"></div><br>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" class="section invert">
     <div class="container">
-      <p class="eyebrow accent">06 — Contact</p>
+      <p class="eyebrow accent">07 — Contact</p>
       <h2 class="display">Let's build something <em>together.</em></h2>
       <div class="contact-grid">
-        <div><p class="label">Personal Email</p><a href="mailto:kimrazon43@gmail.com">kimmrazon@gmail.com</a></div>
+        <div><p class="label">Personal Email</p><a href="mailto:kimmrazon@gmail.com">kimmrazon@gmail.com</a></div>
         <div><p class="label">Phone</p><a href="tel:+639702209285">+(63) 970 220 9285</a></div>
         <div><p class="label">Meteorological Website</p><a target="_blank" rel="noreferrer" href="https://rzkmt-metobs.netlify.app">RZKMT MetObs</a></div>
         <div class="full"><p class="label">Address</p><p>Purok 6, Brgy. Mallorca, San Leonardo, Nueva Ecija</p></div>
@@ -376,16 +441,45 @@ const skills = [
   "Productive Time Management",
   "Effective Communication",
 ];
+
 const education = [
-  { period: "2021 — 2026", school: "Central Luzon State University (CLSU)", degree: "Bachelor of Science in Meteorology (BSMET)", detail: "College of Science · GPA 1.64 · Cum Laude" },
-  { period: "2019 — 2021", school: "Mallorca National High School (MNHS)", degree: "Senior High School — Humanities and Social Sciences (HUMSS)", detail: "GPA 97 · Valedictorian" },
-  { period: "2015 — 2019", school: "Masbate National Comprehensive High School (Science High School)", degree: "Junior High School — Grade 7 to Grade 10", detail: "Cumulative Average 89 · Consistent Top Student" },
+  { 
+    logo: "./image/clsu-logo.jpg", 
+    period: "2021 — 2026", 
+    school: "Central Luzon State University (CLSU)", 
+    degree: "Bachelor of Science in Meteorology (BSMET)", 
+    detail: "College of Science · GPA: 1.64 · Cum Laude" 
+  },
+  { 
+    logo: "./image/mnhs-logo.jpg", 
+    period: "2019 — 2021", 
+    school: "Mallorca National High School (MNHS)", 
+    degree: "Senior High School — Humanities and Social Sciences (HUMSS)", 
+    detail: "GPA: 97 · Valedictorian" 
+  },
+  { 
+    logo: "./image/mnchs-logo.jpg", 
+    period: "2015 — 2019", 
+    school: "Masbate National Comprehensive High School (Science High School)", 
+    degree: "Junior High School — Grade 7 to Grade 10", 
+    detail: "Cumulative Average: 89 · Consistent Top Student" 
+  }
 ];
+
 const experiences = [
   { year: "2026", title: "CSE-PPT Passer", body: "Passed the Civil Service Exam (Professional) — March 2026. Among the 15.85% who passed out of 307,489 examinees nationwide." },
   { year: "2025 — Present", title: "Dagaz Data Entry", body: "Disputing services for Uber Eats — accurate case handling, documentation, and resolution." },
   { year: "2024", title: "On-the-Job Training", body: "240 hours of training at PAGASA Baguio Synoptic Station and PAGASA BSU Agromet Station." },
 ];
+
+// Update filenames and labels to match your actual project images inside a "projects/" folder
+const project = [
+  { file: "1.jpg", label: "Solar-Powered Web-Based Lightning Detection System (Admin)" },
+  { file: "2.jpg", label: "Solar-Powered Web-Based Lightning Detection System (User)" },
+  { file: "3.jpg", label: "RZKMT MetObs — Meteorological Website (With AI)" },
+  { file: "4.jpg", label: "RZKMT MetObs — APK Version (With AI)" },
+];
+
 const credentials = [
   "On-the-Job Training Certificate of Completion",
   "Certificate of Participation — Youth Forum on Access and Benefit Sharing",
@@ -393,21 +487,21 @@ const credentials = [
   "Certificate of Participation — First Campus Journalists' Congress",
   "Certificate of Participation — 2019 CD IV Press Conference",
 ];
+
 const chips = ["Meteorology", "Web & Software Developer", "PAGASA-trained", "Cum Laude", "CSE-PPT Passer"];
+
 const langs = [
   { lang: "Filipino", level: "Fluent", v: 100 },
   { lang: "English", level: "Intermediate", v: 70 }
 ];
 
-// Programming certificates — rename the .jpg files to match these filenames
-// Place all images inside an "eCertificate" folder next to this HTML file
 const progCerts = [
-  { file: "1.jpg", label: "Programming Certificate 1" },
-  { file: "2.jpg", label: "Programming Certificate 2" },
-  { file: "3.jpg", label: "Programming Certificate 3" },
-  { file: "4.jpg", label: "Programming Certificate 4" },
-  { file: "5.jpg", label: "Programming Certificate 5" },
-  { file: "6.jpg", label: "Programming Certificate 6" },
+  { file: "1.jpg", label: "Java Certificate" },
+  { file: "2.jpg", label: "Python Certificate" },
+  { file: "3.jpg", label: "CSS Certificate" },
+  { file: "4.jpg", label: "JavaScript Certificate" },
+  { file: "5.jpg", label: "HTML Certificate" },
+  { file: "6.jpg", label: "CSS Certificate 2" },
 ];
 
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -426,9 +520,8 @@ document.getElementById("exp-list").innerHTML = experiences.map(e => `
 
 document.getElementById("cert-grid").innerHTML = credentials.map(c => `<li>${esc(c)}</li>`).join("");
 
-// Programming cert image gallery
 document.getElementById("prog-cert-grid").innerHTML = progCerts.map((c, i) => `
-  <div class="prog-cert-item" data-index="${i}" tabindex="0" role="button" aria-label="View ${esc(c.label)}">
+  <div class="prog-cert-item" data-type="cert" data-index="${i}" tabindex="0" role="button" aria-label="View ${esc(c.label)}">
     <img src="eCertificates/${esc(c.file)}" alt="${esc(c.label)}" loading="lazy" />
     <div class="prog-cert-overlay">
       <span class="prog-cert-label">${esc(c.label)}</span>
@@ -438,10 +531,24 @@ document.getElementById("prog-cert-grid").innerHTML = progCerts.map((c, i) => `
 
 document.getElementById("edu-grid").innerHTML = education.map(ed => `
   <div class="edu-card">
-    <p class="edu-period">${esc(ed.period)}</p>
+    <div class="edu-header">
+      <img src="${esc(ed.logo)}" alt="${esc(ed.school)} logo" class="edu-logo" onerror="this.style.display='none';" />
+      <div class="edu-meta">
+        <span class="edu-period">${esc(ed.period)}</span>
+        <span class="edu-school">${esc(ed.school)}</span>
+      </div>
+    </div>
     <h3 class="edu-degree">${esc(ed.degree)}</h3>
-    <p class="edu-school">${esc(ed.school)}</p>
     <p class="edu-detail">${esc(ed.detail)}</p>
+  </div>
+`).join("");
+
+document.getElementById("pro-grid").innerHTML = project.map((p, i) => `
+  <div class="prog-cert-item" data-type="project" data-index="${i}" tabindex="0" role="button" aria-label="View ${esc(p.label)}">
+    <img src="projects/${esc(p.file)}" alt="${esc(p.label)}" loading="lazy" />
+    <div class="prog-cert-overlay">
+      <span class="prog-cert-label">${esc(p.label)}</span>
+    </div>
   </div>
 `).join("");
 
@@ -471,16 +578,26 @@ document.querySelectorAll('.nav-links a, .cta-row a[href^="#"]').forEach(a => {
 
 // Lightbox
 let currentIndex = 0;
+let currentType = "cert";
 const lightbox = document.getElementById("lightbox");
 const lbImg = document.getElementById("lb-img");
 const lbCaption = document.getElementById("lb-caption");
 
-function openLightbox(index) {
+function getList() {
+  return currentType === "cert" ? progCerts : project;
+}
+
+function getFolder() {
+  return currentType === "cert" ? "eCertificates/" : "projects/";
+}
+
+function openLightbox(type, index) {
+  currentType = type;
   currentIndex = index;
-  const cert = progCerts[index];
-  lbImg.src = "eCertificates/" + cert.file;
-  lbImg.alt = cert.label;
-  lbCaption.textContent = cert.label;
+  const item = getList()[index];
+  lbImg.src = getFolder() + item.file;
+  lbImg.alt = item.label;
+  lbCaption.textContent = item.label;
   lightbox.classList.add("open");
   document.body.style.overflow = "hidden";
 }
@@ -491,23 +608,36 @@ function closeLightbox() {
 }
 
 function showPrev() {
-  openLightbox((currentIndex - 1 + progCerts.length) % progCerts.length);
+  const list = getList();
+  openLightbox(currentType, (currentIndex - 1 + list.length) % list.length);
 }
 
 function showNext() {
-  openLightbox((currentIndex + 1) % progCerts.length);
+  const list = getList();
+  openLightbox(currentType, (currentIndex + 1) % list.length);
 }
 
-document.getElementById("prog-cert-grid").addEventListener("click", e => {
+// Unified click handler for both cert grid and project grid
+document.addEventListener("click", e => {
   const item = e.target.closest(".prog-cert-item");
-  if (item) openLightbox(Number(item.dataset.index));
+  if (item) {
+    const type = item.dataset.type;
+    const index = Number(item.dataset.index);
+    openLightbox(type, index);
+  }
 });
 
-document.getElementById("prog-cert-grid").addEventListener("keydown", e => {
-  if (e.key === "Enter" || e.key === " ") {
-    const item = e.target.closest(".prog-cert-item");
-    if (item) openLightbox(Number(item.dataset.index));
+document.addEventListener("keydown", e => {
+  const item = e.target.closest(".prog-cert-item");
+  if (item && (e.key === "Enter" || e.key === " ")) {
+    const type = item.dataset.type;
+    const index = Number(item.dataset.index);
+    openLightbox(type, index);
   }
+  if (!lightbox.classList.contains("open")) return;
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowLeft") showPrev();
+  if (e.key === "ArrowRight") showNext();
 });
 
 document.getElementById("lb-close").addEventListener("click", closeLightbox);
@@ -516,13 +646,6 @@ document.getElementById("lb-next").addEventListener("click", showNext);
 
 lightbox.addEventListener("click", e => {
   if (e.target === lightbox) closeLightbox();
-});
-
-document.addEventListener("keydown", e => {
-  if (!lightbox.classList.contains("open")) return;
-  if (e.key === "Escape") closeLightbox();
-  if (e.key === "ArrowLeft") showPrev();
-  if (e.key === "ArrowRight") showNext();
 });
 </script>
 </body>

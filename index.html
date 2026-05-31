@@ -77,10 +77,6 @@ img{display:block;max-width:100%}
 .exp-body{margin-top:.5rem;color:var(--muted);max-width:42rem}
 
 .card{margin-top:4rem;border:1px solid var(--border);background:var(--card);border-radius:16px;padding:32px}
-.cert-grid{margin-top:1.5rem;list-style:none;display:grid;gap:.75rem}
-@media(min-width:768px){.cert-grid{grid-template-columns:1fr 1fr}}
-.cert-grid li{display:flex;gap:.75rem;color:var(--muted)}
-.cert-grid li::before{content:"";flex-shrink:0;margin-top:.55rem;width:6px;height:6px;border-radius:999px;background:var(--accent)}
 
 /* IMAGE GALLERY (shared by prog certs + projects) */
 .prog-cert-grid{
@@ -204,7 +200,6 @@ img{display:block;max-width:100%}
 }
 
 /* EDU */
-/* Update these lines in your <style> tag */
 .edu-grid { margin-top: 3rem; display: grid; gap: 24px; }
 @media(min-width:768px){ .edu-grid { grid-template-columns: repeat(3, 1fr); } }
 
@@ -228,7 +223,7 @@ img{display:block;max-width:100%}
   object-fit: contain;
   border-radius: 6px;
   flex-shrink: 0;
-  background: #fff; /* Safeguard for non-transparent backgrounds */
+  background: #fff;
   padding: 2px;
   border: 1px solid var(--border);
 }
@@ -344,12 +339,6 @@ img{display:block;max-width:100%}
       <h2 class="display-sm">Experience &amp; Credentials</h2>
       <div class="exp-list" id="exp-list"></div>
 
-      <!-- Academic Certificates -->
-      <div class="card mt-xl">
-        <h3 class="h3">Academic Certificates</h3>
-        <ul class="cert-grid" id="cert-grid"></ul>
-      </div>
-
       <!-- Programming Certificates -->
       <div class="card mt-xl">
         <h3 class="h3">Programming Certificates</h3>
@@ -395,7 +384,7 @@ img{display:block;max-width:100%}
       <p class="eyebrow accent">06 — Projects</p>
       <h2 class="display-sm">My creations</h2>
       <div class="card mt-xl">
-	  <h3 class="h3">Meteorology Related Web and Software Development Projects</h3>
+        <h3 class="h3">Meteorology Related Web and Software Development Projects</h3>
         <div class="prog-cert-grid" id="pro-grid"></div><br>
       </div>
     </div>
@@ -472,20 +461,11 @@ const experiences = [
   { year: "2024", title: "On-the-Job Training", body: "240 hours of training at PAGASA Baguio Synoptic Station and PAGASA BSU Agromet Station." },
 ];
 
-// Update filenames and labels to match your actual project images inside a "projects/" folder
 const project = [
   { file: "1.jpg", label: "Solar-Powered Web-Based Lightning Detection System (Admin)" },
   { file: "2.jpg", label: "Solar-Powered Web-Based Lightning Detection System (User)" },
   { file: "3.jpg", label: "RZKMT MetObs — Meteorological Website (With AI)" },
   { file: "4.jpg", label: "RZKMT MetObs — APK Version (With AI)" },
-];
-
-const credentials = [
-  "On-the-Job Training Certificate of Completion",
-  "Certificate of Participation — Youth Forum on Access and Benefit Sharing",
-  "Certificate of Participation — First-aid Training",
-  "Certificate of Participation — First Campus Journalists' Congress",
-  "Certificate of Participation — 2019 CD IV Press Conference",
 ];
 
 const chips = ["Meteorology", "Web & Software Developer", "PAGASA-trained", "Cum Laude", "CSE-PPT Passer"];
@@ -517,8 +497,6 @@ document.getElementById("exp-list").innerHTML = experiences.map(e => `
     </div>
   </article>
 `).join("");
-
-document.getElementById("cert-grid").innerHTML = credentials.map(c => `<li>${esc(c)}</li>`).join("");
 
 document.getElementById("prog-cert-grid").innerHTML = progCerts.map((c, i) => `
   <div class="prog-cert-item" data-type="cert" data-index="${i}" tabindex="0" role="button" aria-label="View ${esc(c.label)}">
@@ -617,7 +595,6 @@ function showNext() {
   openLightbox(currentType, (currentIndex + 1) % list.length);
 }
 
-// Unified click handler for both cert grid and project grid
 document.addEventListener("click", e => {
   const item = e.target.closest(".prog-cert-item");
   if (item) {
